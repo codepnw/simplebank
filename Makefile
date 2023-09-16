@@ -1,5 +1,5 @@
 postgres:
-	docker run -p 5432:5432 --name postgres -e POSTGRES_USE=postgres -e POSTGRES_PASSWORD=123456 -d postgres:15.4
+	docker run -p 5432:5432 --name postgres --network bank-network -e POSTGRES_USE=postgres -e POSTGRES_PASSWORD=123456 -d postgres:15.4
 createdb:
 	docker exec -it postgres createdb --username=postgres --owner=postgres simple_bank
 dropdb:
